@@ -4,10 +4,10 @@
 require('dotenv').config(); // npm i dotenv
 const express = require('express'); //npm i express
 const pokeData = require('./assets/poke.json')
-const cors = require('cors');
+// const cors = require('cors');
 
 const server = express();
-server.use(cors()); //  make my server opened for anyone
+// server.use(cors()); //  make my server opened for anyone
 
 // const PORT = 3001;
 const PORT = process.env.PORT;
@@ -23,14 +23,14 @@ server.get('/test', (request, response) => {
     response.status(200).send(str);
 })
 
-// // http://localhost:3001/getPoke
-// server.get('/getPoke',(req,res)=>{
-//     console.log(pokeData);
-//     let pokeNames = pokeData.results.map(item=>{
-//         return item.name;
-//     })
-//     res.send(pokeNames)
-// })
+// // http://localhost:3001/getPokeNames
+server.get('/getPokeNames',(req,res)=>{
+    console.log(pokeData);
+    let pokeNames = pokeData.results.map(item=>{
+        return item.name;
+    })
+    res.send(pokeNames)
+})
 
 // http://localhost:3001/getPoke?pokeName=bulbasaur
 server.get('/getPoke', (req, res) => {
