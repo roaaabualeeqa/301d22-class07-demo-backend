@@ -4,10 +4,10 @@
 require('dotenv').config(); // npm i dotenv
 const express = require('express'); //npm i express
 const pokeData = require('./assets/poke.json')
-// const cors = require('cors');
+const cors = require('cors');
 
 const server = express();
-// server.use(cors()); //  make my server opened for anyone
+server.use(cors()); //  make my server opened for anyone
 
 // const PORT = 3001;
 const PORT = process.env.PORT;
